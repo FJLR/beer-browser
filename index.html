@@ -1,30 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Beer Browser!</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-    />
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <div class="ui container">
-      <h1 class="ui header">Beer List</h1>
+<html>
+<head>
+<title>1.1 Fetch</title>
+</head>
+<body>
 
-      <div class="ui grid">
-        <div class="four wide column">
-          <div id="temp"></div>
-          <ul class="ui divided list" id="beers"></ul>
-        </div>
-        <div class="four wide column">image will go here!</div>
-        <div class="two wide column">details in here!</div>
-      </div>
-    </div>
+<h1>1.1 Fetch - Coding Train</h1>
+<p id="seven"></p>
 
-    <script src="index.js"></script>
-  </body>
+<img src="" id="superCluster" width="300" height="190"/>
+
+
+
+<!-- the script goes here-->
+<!-- the script goes here-->
+<!-- the script goes here-->
+
+<script>
+console.log("hola for testing");
+//fetch("laniakea.jpeg")
+
+fetch("https://reqres.in/api/users/7")
+.then(res => res.json()).then(data => console.log(data));
+
+
+fetch("https://reqres.in/img/faces/7-image.jpg")
+.then(response => {
+ console.log(response);
+ return response.blob();
+})
+.then(response =>{
+    //console.log(response);
+ document.getElementById("superCluster").src = URL.createObjectURL(response);
+})
+.catch(error => {
+    console.log("oops an error...!");
+    console.error(error);
+    
+});
+
+
+
+
+
+ // to be reviewed
+ // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+ // https://developer.mozilla.org/en-US/docs/Web/API/Blob
+ // https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL
+
+</script>
+
+
+
+</body>
 </html>
